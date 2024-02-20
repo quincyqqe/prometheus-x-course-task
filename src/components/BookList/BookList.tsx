@@ -2,6 +2,7 @@
 import React, { useEffect, useState } from 'react'
 import ProductCard from '../ProductCart/ProductCart'
 import Filter from '../Filter/Filter'
+import './BookList.scss'
 
 interface Book {
 	id: number
@@ -86,29 +87,35 @@ const BookList: React.FC = () => {
 	return (
 		<div>
 			<Filter onFilterChange={handleFilterChange} />
-
-			<div
-				style={{
-					display: 'flex',
-					flexWrap: 'wrap',
-					justifyContent: 'space-around',
-				}}
-			>
-				{filteredBooks.map(book => (
-					<ProductCard
-						key={book.id}
-						id={book.id}
-						name={
-							book.title.length > 24
-								? book.title.slice(0, 24) + '...'
-								: book.title
-						}
-						price={book.price}
-						image={book.image}
-						author={book.author}
-						addToCart={addToCart}
-					/>
-				))}
+			<div className='container'>
+				<div
+					className='booklist'
+					style={{
+						display: 'flex',
+						flexWrap: 'wrap',
+						justifyContent: 'flex-start',
+						margin: '0 24px',
+						
+						
+						
+					}}
+				>
+					{filteredBooks.map(book => (
+						<ProductCard
+							key={book.id}
+							id={book.id}
+							name={
+								book.title.length > 24
+									? book.title.slice(0, 24) + '...'
+									: book.title
+							}
+							price={book.price}
+							image={book.image}
+							author={book.author}
+							addToCart={addToCart}
+						/>
+					))}
+				</div>
 			</div>
 		</div>
 	)

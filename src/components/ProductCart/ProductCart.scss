@@ -48,14 +48,16 @@
 .product-card {
 	display: flex;
 	flex-direction: column; /* Используем колонку, чтобы элементы выстраивались вертикально */
+
 	border: 1px solid #736d6d;
 	border-radius: 8px;
 	margin: 16px;
-	margin-right: 10px;
+	margin-right: 50px;
 	width: 300px;
-	height: 500px;
+	height: 450px;
 	box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
 	transition: background-color 0.3s ease;
+	justify-content: left;
 	&:hover {
 		background-color: #665f5f43; /* Новый цвет фона при наведении */
 	}
@@ -93,3 +95,10 @@
 	margin: auto 15px 0; /* Верхний отступ auto займет все доступное пространство */
 }
 
+.product-card:last-child {
+	margin-bottom: 100px; /* отменяем margin-bottom для последнего элемента */
+}
+
+// .product-card:nth-child(4n) {
+// 	margin-right: 0;
+// }
