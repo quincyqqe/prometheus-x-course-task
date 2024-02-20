@@ -8,23 +8,21 @@ import NotFoundPage from './components/NotFoundPage/NotFoundPage'
 import Footer from './components/Footer/Footer'
 import Cart from './pages/Cart/Cart'
 import { AuthProvider } from './context/AuthContext'
-
-
-
+import { CartProvider } from './context/CartContext'
 
 const App: React.FC = () => {
-
-
 	return (
 		<AuthProvider>
 			<Router>
-				<Routes>
-					<Route path='/' element={<Login />} />
-					<Route path='/home' element={<Home />} />
-					<Route path='/book-details/:productId' element={<BookDetails />} />
-					<Route path='/cart' element={<Cart />} />
-					<Route path='*' element={<NotFoundPage />} />
-				</Routes>
+				<CartProvider>
+					<Routes>
+						<Route path='/' element={<Login />} />
+						<Route path='/home' element={<Home />} />
+						<Route path='/book-details/:productId' element={<BookDetails />} />
+						<Route path='/cart' element={<Cart />} />
+						<Route path='*' element={<NotFoundPage />} />
+					</Routes>
+				</CartProvider>
 				<Footer />
 			</Router>
 		</AuthProvider>
