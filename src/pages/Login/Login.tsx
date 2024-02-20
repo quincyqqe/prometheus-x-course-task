@@ -1,5 +1,7 @@
-import React, { useState } from 'react'
+import React, { useState, useEffect } from 'react'
 import { useNavigate } from 'react-router-dom'
+import { useAuth } from '../../context/AuthContext'
+
 import './Login.scss'
 
 const Login: React.FC = () => {
@@ -9,6 +11,7 @@ const Login: React.FC = () => {
 	const [currentUser, setCurrentUser] = useState<string>('')
 
 	const navigate = useNavigate()
+	const { login } = useAuth()
 
 	const handleSubmit = (e: React.FormEvent) => {
 		e.preventDefault()
@@ -16,7 +19,8 @@ const Login: React.FC = () => {
 			alert(`Error, username and password fields cannot be empty.`)
 			return
 		}
-		setCurrentUser(userName)
+		// setCurrentUser(userName)
+		 login()
 		navigate('/home')
 	}
 
