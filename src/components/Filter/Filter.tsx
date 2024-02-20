@@ -1,16 +1,23 @@
+// components/Filter.tsx
 import React, { useState } from 'react'
 import './Filter.scss'
 
-const Filter: React.FC = () => {
+interface FilterProps {
+	onFilterChange: (searchTerm: string, price: string) => void
+}
+
+const Filter: React.FC<FilterProps> = ({ onFilterChange }) => {
 	const [searchTerm, setSearchTerm] = useState('')
 	const [price, setPrice] = useState('')
 
-	const handleSearchChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+	const handleInputChange = (e: React.ChangeEvent<HTMLInputElement>) => {
 		setSearchTerm(e.target.value)
+		onFilterChange(e.target.value, price)
 	}
 
 	const handlePriceChange = (e: React.ChangeEvent<HTMLSelectElement>) => {
 		setPrice(e.target.value)
+		onFilterChange(searchTerm, e.target.value)
 	}
 
 	return (
@@ -22,20 +29,23 @@ const Filter: React.FC = () => {
 					className='filter-search-input'
 					placeholder='Search by book name'
 					value={searchTerm}
-					onChange={handleSearchChange}
+					onChange={handleInputChange}
 				/>
 			</div>
 			<div className='filter-price'>
-				<select
-					id='price'
-					className='filter-price-select'
-					value={price}
-					onChange={handlePriceChange}
-				>
-					<option value=''>Choose price</option>
-					<option value='low'>Low</option>
-					<option value='high'>High</option>
-				</select>
+				<label>
+					<select
+						id='price'
+						className='filter-price-select'
+						value={price}
+						onChange={handlePriceChange}
+					>
+						<option value='all'>All</option>
+						<option value='0-15'>0 - 15</option>
+						<option value='15-30'>15 - 30</option>
+						<option value='30+'>30+</option>
+					</select>
+				</label>
 			</div>
 		</div>
 	)

@@ -1,12 +1,19 @@
 import { useNavigate } from 'react-router-dom'
 import './Header.scss'
 
+
 const Header: React.FC = () => {
     const navigate = useNavigate()
+	
 
     const handleClick = () => {
         navigate('/')
     }
+
+	const handleClickHome = () => {
+		navigate('/home')
+	}
+	
 
 	const handleClickCart = () => {
 		navigate('/cart')
@@ -15,7 +22,7 @@ const Header: React.FC = () => {
 	return (
 		<div className='header'>
 			<div className='header-left'>
-				<div className='header__title'>X-Course Task / Maksym Kryvenko</div>
+				<div className='header__title' onClick={handleClickHome}>X-Course Task / Maksym Kryvenko</div>
 			</div>
 			<div className='header-right'>
 				<div className='header__cart'>
@@ -29,6 +36,7 @@ const Header: React.FC = () => {
 					<img
 						src='../../../public/images/user.png'
 						alt='user'
+						
 					
 					/>
 				</div>

@@ -7,6 +7,8 @@ interface ProductCardProps {
 	name: string
 	price: number
 	image: string | undefined
+	author: string
+	title: string
 	addToCart: (productId: number) => void
 }
 
@@ -15,6 +17,9 @@ const ProductCard: React.FC<ProductCardProps> = ({
 	name,
 	price,
 	image,
+	author,
+	title,
+
 
 	addToCart,
 }) => {
@@ -26,9 +31,10 @@ const ProductCard: React.FC<ProductCardProps> = ({
 	}
 	return (
 		<div className='product-card'>
-			<img src={image} alt='book-image' />
+			<img src={image || '../../../public/no-pictures.png'} alt='../../../public/picture.png' />
 			<div className='product-card__title'>
 				<h3>{name}</h3>
+				<h4>{author}</h4>
 			</div>
 
 			<div className='product-card__wrapper'>
