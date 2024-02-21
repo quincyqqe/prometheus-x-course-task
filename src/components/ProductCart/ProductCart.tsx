@@ -1,4 +1,3 @@
-import React from 'react'
 import { useNavigate } from 'react-router-dom'
 import './ProductCart.scss'
 
@@ -8,8 +7,6 @@ interface ProductCardProps {
 	price: number
 	image: string | undefined
 	author: string
-	title: string
-	addToCart: (productId: number) => void
 }
 
 const ProductCard: React.FC<ProductCardProps> = ({
@@ -18,12 +15,7 @@ const ProductCard: React.FC<ProductCardProps> = ({
 	price,
 	image,
 	author,
-	title,
-
-
-	addToCart,
 }) => {
-
 	const navigate = useNavigate()
 
 	const handleClick = () => {
@@ -31,7 +23,10 @@ const ProductCard: React.FC<ProductCardProps> = ({
 	}
 	return (
 		<div className='product-card'>
-			<img src={image || '../../../public/no-pictures.png'} alt='../../../public/picture.png' />
+			<img
+				src={image || '../../../public/images/no-pictures.png'}
+				alt='../../../public/images/picture.png'
+			/>
 			<div className='product-card__title'>
 				<h3>{name}</h3>
 				<h4>{author}</h4>

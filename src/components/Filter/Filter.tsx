@@ -1,4 +1,3 @@
-// components/Filter.tsx
 import React, { useState } from 'react'
 import './Filter.scss'
 

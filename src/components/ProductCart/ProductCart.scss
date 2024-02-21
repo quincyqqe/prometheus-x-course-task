@@ -1,65 +1,16 @@
-// .product-card {
-// 	display: flex;
-// 	flex-direction: column; /* Используем колонку, чтобы элементы выстраивались вертикально */
-// 	border: 1px solid #736d6d;
-// 	border-radius: 8px;
-// 	margin: 16px;
-// 	margin-right: 10px;
-// 	width: 230px;
-// 	height: 400px;
-// 	box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-// 	transition: background-color 0.3s ease;
-// 	&:hover {
-// 		background-color: #665f5f43; /* Новый цвет фона при наведении */
-// 	}
-
-// 	button {
-// 		background-color: #007bff;
-// 		border-radius: 10px;
-// 		color: #fff;
-// 		width: 60px;
-// 		border: none;
-// 		padding: 8px;
-// 		cursor: pointer;
-// 	}
-
-// 	img {
-// 		border-top-right-radius: 8px;
-// 		border-top-left-radius: 8px;
-// 		width: 100%;
-// 		height: 250px;
-// 		padding: 0;
-// 	}
-// }
-
-// .product-card__title {
-// 	font-weight: bold;
-// 	margin-left: 10px;
-// }
-
-// .product-card__wrapper {
-// 	display: flex;
-// 	justify-content: space-between;
-// 	align-items: center;
-// 	border-top: 1px solid #736d6d;
-// 	width: 200px;
-// 	margin: auto 15px 0; /* Верхний отступ auto займет все доступное пространство */
-// }
 .product-card {
 	display: flex;
-	flex-direction: column; /* Используем колонку, чтобы элементы выстраивались вертикально */
+	flex-direction: column;
 
 	border: 1px solid #736d6d;
 	border-radius: 8px;
 	margin: 16px 20px;
-	// margin-right: 50px;
 	width: 300px;
 	height: 450px;
 	box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
 	transition: background-color 0.3s ease;
-	// justify-content: flex-start;
 	&:hover {
-		background-color: #665f5f43; /* Новый цвет фона при наведении */
+		background-color: #665f5f43;
 	}
 
 	button {
@@ -92,16 +43,12 @@
 	align-items: center;
 	border-top: 1px solid #736d6d;
 	width: 270px;
-	margin: auto 15px 0; /* Верхний отступ auto займет все доступное пространство */
+	margin: auto 15px 0;
 }
 
 .product-card:last-child {
-	margin-bottom: 100px; /* отменяем margin-bottom для последнего элемента */
+	margin-bottom: 100px;
 	display: flex;
 	justify-content: flex-start !important;
 	flex-wrap: wrap;
 }
-
-// .product-card:nth-child(4n) {
-// 	margin-right: 0;
-// }

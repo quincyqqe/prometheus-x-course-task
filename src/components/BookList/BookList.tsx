@@ -1,5 +1,4 @@
-// components/BookList.tsx
-import React, { useEffect, useState } from 'react'
+import { useEffect, useState } from 'react'
 import ProductCard from '../ProductCart/ProductCart'
 import Filter from '../Filter/Filter'
 import './BookList.scss'
@@ -13,7 +12,7 @@ interface Book {
 	author: string
 }
 
-const BookList: React.FC = () => {
+const BookList = () => {
 	const [books, setBooks] = useState<Book[]>([])
 	const [filteredBooks, setFilteredBooks] = useState<Book[]>([])
 	const [searchTerm, setSearchTerm] = useState('')
@@ -28,8 +27,6 @@ const BookList: React.FC = () => {
 				if (data.books && Array.isArray(data.books)) {
 					setBooks(data.books)
 					filterBooks(searchTerm, selectedPriceRange)
-				} else {
-					console.error('Invalid data structure:', data)
 				}
 			} catch (error) {
 				console.error('Error fetching data:', error)
@@ -72,7 +69,7 @@ const BookList: React.FC = () => {
 			case '30+':
 				filtered = filtered.filter(book => book.price >= 30)
 				break
-			// 'all' case is handled by default, no additional filtering needed
+
 			default:
 				break
 		}
@@ -95,9 +92,6 @@ const BookList: React.FC = () => {
 						flexWrap: 'wrap',
 						justifyContent: 'flex-start',
 						margin: '0 60px',
-						
-						
-						
 					}}
 				>
 					{filteredBooks.map(book => (

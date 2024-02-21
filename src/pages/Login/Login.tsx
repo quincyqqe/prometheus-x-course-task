@@ -1,16 +1,14 @@
-import React, { useState, useEffect } from 'react'
+import { useState } from 'react'
 import { useNavigate } from 'react-router-dom'
 
 import './Login.scss'
 interface LoginProps {
 	onAuthentication: () => void
 }
-const Login: React.FC<LoginProps> = ({onAuthentication}) => {
+const Login: React.FC<LoginProps> = ({ onAuthentication }) => {
 	const [userName, setUserName] = useState<string>('')
 	const [password, setPassword] = useState<string>('')
 	const [userNameValid, setUserNameValid] = useState<boolean>(false)
-	const [currentUser, setCurrentUser] = useState<string>('')
-	const [isAuthenticated, setIsAuthenticated] = useState<boolean>(false)
 
 	const navigate = useNavigate()
 
@@ -32,7 +30,6 @@ const Login: React.FC<LoginProps> = ({onAuthentication}) => {
 		const userNameValue = e.target.value
 		setUserName(userNameValue)
 
-		// Check if the username value is valid (i.e. meets the length requirement)
 		const isValid = userNameValue.length >= 4 && userNameValue.length <= 16
 		setUserNameValid(isValid)
 	}

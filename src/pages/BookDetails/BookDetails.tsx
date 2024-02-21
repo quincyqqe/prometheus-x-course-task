@@ -1,22 +1,17 @@
-import React, { useEffect, useState } from 'react'
-import Header from '../../components/Header/Header'
+import { useEffect, useState } from 'react'
+import { useParams } from 'react-router-dom'
+import { useCart } from '../../context/CartContext'
 
-import { useNavigate, useParams } from 'react-router-dom'
-import './BookDetails.scss'
-import { useCart } from '../../context/CartContext' // Assuming that you have CartContext in this path
+import Header from '../../components/Header/Header'
 import Snackbar from '@mui/material/Snackbar'
 import Alert from '@mui/material/Alert'
-import Button from '@mui/material/Button'
 
+import './BookDetails.scss'
 
-interface BookDetailsProps {}
-
-const BookDetails: React.FC<BookDetailsProps> = () => {
-	
-	const navigate = useNavigate()
+const BookDetails = () => {
 	const { productId } = useParams<{ productId: string }>()
 	const [book, setBook] = useState<any>({})
-	const { addToCart } = useCart() // Using the addToCart function from CartContext
+	const { addToCart } = useCart()
 	const [snackbarOpen, setSnackbarOpen] = useState(false)
 
 	useEffect(() => {
@@ -42,8 +37,6 @@ const BookDetails: React.FC<BookDetailsProps> = () => {
 		fetchData()
 	}, [productId])
 
-	
-
 	const handleBuyClick = () => {
 		const { id, title, price } = book
 
@@ -67,7 +60,7 @@ const BookDetails: React.FC<BookDetailsProps> = () => {
 			<div className='book-details-container'>
 				<div className='book-details-image'>
 					<img
-						src={book.image || '../../../public/no-pictures.png'}
+						src={book.image || '../../../public/images/no-pictures.png'}
 						alt={book.title}
 					/>
 				</div>

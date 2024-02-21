@@ -1,7 +1,6 @@
-import React from 'react'
 import Header from '../../components/Header/Header'
-import './Cart.scss'
 import { useCart } from '../../context/CartContext'
+import './Cart.scss'
 
 interface CartItem {
 	id: number
@@ -9,20 +8,19 @@ interface CartItem {
 	price: number
 }
 
-const Cart: React.FC = () => {
+const Cart = () => {
 	const { cartItems, removeFromCart, clearCart } = useCart()
 
-	const totalPrice = cartItems.reduce((total, item) => total + item.price, 0)
+	const totalPrice = cartItems.reduce(
+		(total: number, item: CartItem) => total + item.price,
+		0
+	)
 
 	const handleRemoveFromCart = (productId: number) => {
 		removeFromCart(productId)
 	}
 
 	const handlePurchase = () => {
-		// Implement your purchase logic here
-		// ...
-
-		// Очищаем корзину после покупки
 		clearCart()
 	}
 
@@ -43,7 +41,7 @@ const Cart: React.FC = () => {
 										className='remove-button'
 										onClick={() => handleRemoveFromCart(item.id)}
 									>
-										<img src='../../../public/letter-x.png' alt='' />
+										<img src='../../../public/images/letter-x.png' alt='x' />
 									</div>
 								</li>
 							))}
