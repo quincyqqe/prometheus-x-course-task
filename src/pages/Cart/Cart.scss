@@ -1,8 +1,8 @@
 .cart-container {
 	max-width: 800px;
 	margin: 20px auto;
-    margin-top: 100px;
-    margin-bottom: 100px;
+	margin-top: 100px;
+	margin-bottom: 100px;
 	padding: 20px;
 	border: 1px solid #333;
 	border-radius: 8px;
@@ -52,4 +52,10 @@
 
 .cart-container button:hover {
 	background-color: #0056b3;
+}
+
+.remove-button img {
+	height: 40px;
+	display: flex;
+	cursor: pointer;
 }

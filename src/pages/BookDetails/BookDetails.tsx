@@ -4,6 +4,10 @@ import { useAuth } from '../../context/AuthContext'
 import { useNavigate, useParams } from 'react-router-dom'
 import './BookDetails.scss'
 import { useCart } from '../../context/CartContext' // Assuming that you have CartContext in this path
+import Snackbar from '@mui/material/Snackbar'
+import Alert from '@mui/material/Alert'
+import Button from '@mui/material/Button'
+
 
 interface BookDetailsProps {}
 
@@ -13,6 +17,7 @@ const BookDetails: React.FC<BookDetailsProps> = () => {
 	const { productId } = useParams<{ productId: string }>()
 	const [book, setBook] = useState<any>({})
 	const { addToCart } = useCart() // Using the addToCart function from CartContext
+	const [snackbarOpen, setSnackbarOpen] = useState(false)
 
 	useEffect(() => {
 		const fetchData = async () => {
@@ -44,16 +49,20 @@ const BookDetails: React.FC<BookDetailsProps> = () => {
 	}, [isAuthenticated, navigate])
 
 	const handleBuyClick = () => {
-		// Assuming that you have all necessary properties in the book object
 		const { id, title, price } = book
 
-		// Add the book to the cart
 		addToCart({
 			id,
 			title,
 			price,
-			quantity: 1, // You can adjust the quantity as needed
+			isPurchased: true,
 		})
+
+		setSnackbarOpen(true)
+	}
+
+	const closeSnackbar = () => {
+		setSnackbarOpen(false)
 	}
 
 	return (
@@ -74,8 +83,23 @@ const BookDetails: React.FC<BookDetailsProps> = () => {
 					<p>Tags: {book.tags && book.tags.join(' ')}</p>
 					<p>Amount: {book.amount}</p>
 					<p>Level: {book.level}</p>
-					<button onClick={handleBuyClick}>Buy</button>
-					{/* Other book details */}
+					<button disabled={book.isPurchased} onClick={handleBuyClick}>
+						{book.isPurchased ? 'Already Purchased' : 'Purchase'}
+					</button>
+					<Snackbar
+						open={snackbarOpen}
+						autoHideDuration={2000}
+						onClose={closeSnackbar}
+					>
+						<Alert
+							onClose={closeSnackbar}
+							severity='success'
+							variant='filled'
+							action={false}
+						>
+							Book added to the cart!
+						</Alert>
+					</Snackbar>
 				</div>
 			</div>
 		</>

@@ -8,9 +8,8 @@ interface CartItem {
 	id: number
 	title: string
 	price: number
-	quantity: number
+	isPurchased: boolean // Добавляем новое свойство для отслеживания покупки
 }
-
 interface CartContextType {
 	cartItems: CartItem[]
 	addToCart: (item: CartItem) => void
@@ -27,7 +26,14 @@ export const CartProvider: React.FC<CartContextProps> = ({ children }) => {
 	}
 
 	const removeFromCart = (itemId: number) => {
-		setCartItems(prevItems => prevItems.filter(item => item.id !== itemId))
+		setCartItems(prevItems => {
+			const index = prevItems.findIndex(item => item.id === itemId)
+			if (index !== -1) {
+				return [...prevItems.slice(0, index), ...prevItems.slice(index + 1)]
+			} else {
+				return prevItems
+			}
+		})
 	}
 
 	return (

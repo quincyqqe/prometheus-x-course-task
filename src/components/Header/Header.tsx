@@ -35,6 +35,7 @@ const Header: React.FC = () => {
 				<div className='header__user'>
 					<img
 						src='../../../public/images/user.png'
+						onClick={handleClickHome}
 						alt='user'
 						
 					

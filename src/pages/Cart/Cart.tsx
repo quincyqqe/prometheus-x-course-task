@@ -1,21 +1,22 @@
 import React from 'react'
 import Header from '../../components/Header/Header'
 import './Cart.scss'
-import { useAuth } from '../../context/AuthContext'
 import { useCart } from '../../context/CartContext'
-import { useNavigate } from 'react-router-dom'
-import { useEffect } from 'react'
 
-const Cart = () => {
-	const { isAuthenticated } = useAuth()
-	const { cartItems } = useCart() // Use the useCart hook to get cartItems
-	const navigate = useNavigate()
+interface CartItem {
+	id: number
+	title: string
+	price: number
+}
 
-	useEffect(() => {
-		if (!isAuthenticated) {
-			navigate('/')
-		}
-	}, [isAuthenticated, navigate])
+const Cart: React.FC = () => {
+	const { cartItems, removeFromCart } = useCart()
+
+	const totalPrice = cartItems.reduce((total, item) => total + item.price, 0)
+
+	const handleRemoveFromCart = (productId: number) => {
+		removeFromCart(productId)
+	}
 
 	return (
 		<>
@@ -26,13 +27,20 @@ const Cart = () => {
 					<p>Your cart is empty.</p>
 				) : (
 					<ul>
-						{cartItems.map(item => (
+						{cartItems.map((item: CartItem) => (
 							<li key={item.id}>
-								{item.title} - ${item.price} - Quantity: {item.quantity}
+								{item.title} - ${item.price}
+								<div
+									className='remove-button'
+									onClick={() => handleRemoveFromCart(item.id)}
+								>
+									<img src='../../../public/letter-x.png' alt='' />
+								</div>
 							</li>
 						))}
 					</ul>
 				)}
+				<p className='cart-total'>Total: ${totalPrice.toFixed(2)}</p>
 			</div>
 		</>
 	)

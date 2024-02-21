@@ -85,7 +85,7 @@ const BookList: React.FC = () => {
 	}
 
 	return (
-		<div>
+		<>
 			<Filter onFilterChange={handleFilterChange} />
 			<div className='container'>
 				<div
@@ -94,7 +94,7 @@ const BookList: React.FC = () => {
 						display: 'flex',
 						flexWrap: 'wrap',
 						justifyContent: 'flex-start',
-						margin: '0 24px',
+						margin: '0 60px',
 						
 						
 						
@@ -117,7 +117,7 @@ const BookList: React.FC = () => {
 					))}
 				</div>
 			</div>
-		</div>
+		</>
 	)
 }
 

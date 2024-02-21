@@ -51,13 +51,13 @@
 
 	border: 1px solid #736d6d;
 	border-radius: 8px;
-	margin: 16px;
-	margin-right: 50px;
+	margin: 16px 20px;
+	// margin-right: 50px;
 	width: 300px;
 	height: 450px;
 	box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
 	transition: background-color 0.3s ease;
-	justify-content: left;
+	// justify-content: flex-start;
 	&:hover {
 		background-color: #665f5f43; /* Новый цвет фона при наведении */
 	}
@@ -97,6 +97,9 @@
 
 .product-card:last-child {
 	margin-bottom: 100px; /* отменяем margin-bottom для последнего элемента */
+	display: flex;
+	justify-content: flex-start !important;
+	flex-wrap: wrap;
 }
 
 // .product-card:nth-child(4n) {
