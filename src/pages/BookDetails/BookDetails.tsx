@@ -1,22 +1,20 @@
 import { useEffect, useState } from 'react'
 import { useParams } from 'react-router-dom'
 import { useCart } from '../../context/CartContext'
-
 import Header from '../../components/Header/Header'
 import Snackbar from '@mui/material/Snackbar'
 import Alert from '@mui/material/Alert'
-
 import './BookDetails.scss'
 
 const BookDetails = () => {
 	const { productId } = useParams<{ productId: string }>()
 	const [book, setBook] = useState<any>({})
-
+	const [loading, setLoading] = useState(true)
 	const [snackbarOpen, setSnackbarOpen] = useState(false)
 	const cartContext = useCart()
 
 	if (!cartContext) {
-		// обработка случая, когда контекст равен undefined
+		// Обработка случая, когда контекст равен undefined
 		return null
 	}
 
@@ -39,6 +37,8 @@ const BookDetails = () => {
 				}
 			} catch (error) {
 				console.error('Error fetching data:', error)
+			} finally {
+				setLoading(false) // Устанавливаем loading в false после завершения загрузки, независимо от результата
 			}
 		}
 
@@ -62,15 +62,16 @@ const BookDetails = () => {
 		setSnackbarOpen(false)
 	}
 
+	if (loading) {
+		return <div></div> // Загрузка, пока нет данных (но не знаю как сделать правильно ибо быстро грузит и происходит мерцание)
+	}
+
 	return (
 		<>
 			<Header />
 			<div className='book-details-container'>
 				<div className='book-details-image'>
-					<img
-						src={book.image || '/no-pictures.png'}
-						alt={book.title}
-					/>
+					<img src={book.image || '/no-pictures.png'} alt={book.title} />
 				</div>
 				<div className='book-details-info'>
 					<h2>{book.title}</h2>

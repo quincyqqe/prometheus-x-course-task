@@ -20,10 +20,15 @@ const BookList = () => {
 	const [searchTerm, setSearchTerm] = useState('')
 	const [selectedPriceRange, setSelectedPriceRange] = useState<string>('all')
 
-	useEffect(() => {
+ useEffect(() => {
 		const fetchData = async () => {
 			try {
 				const response = await fetch('/books.json')
+
+				if (!response.ok) {
+					throw new Error('Failed to fetch data')
+				}
+
 				const data = await response.json()
 
 				if (data.books && Array.isArray(data.books)) {
@@ -36,7 +41,13 @@ const BookList = () => {
 		}
 
 		fetchData()
-	}, [])
+ }, [searchTerm, selectedPriceRange])
+
+ const handleFilterChange = (search: string, priceRange: string) => {
+		setSearchTerm(search)
+		setSelectedPriceRange(priceRange)
+ }
+
 
 	useEffect(() => {
 		// Викликаємо filterBooks тільки після успішного завантаження даних
@@ -45,10 +56,7 @@ const BookList = () => {
 		}
 	}, [books, selectedPriceRange, searchTerm])
 
-	const handleFilterChange = (search: string, priceRange: string) => {
-		setSearchTerm(search)
-		setSelectedPriceRange(priceRange)
-	}
+
 
 	const filterBooks = (search: string, priceRange: string) => {
 		let filtered = books

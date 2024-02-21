@@ -8,7 +8,7 @@ interface ProductCardProps {
 	id: number
 	name: string
 	price: number
-	image: string
+	image: string 
 	author: string
 	addToCart: (productId: number) => void
 }
@@ -28,7 +28,7 @@ const ProductCard: React.FC<ProductCardProps> = ({
 		<div className='product-card'>
 			<img
 				src={image || '/no-pictures.png'}
-				alt='/picture.png'
+				alt='book image'
 			/>
 			<div className='product-card__title'>
 				<h3>{name}</h3>
