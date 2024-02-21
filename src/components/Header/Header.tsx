@@ -20,7 +20,7 @@ const Header = () => {
 		<div className='header'>
 			<div className='header-left'>
 				<div className='header__title' onClick={handleClickHome}>
-					X-Course Task / Maksym Kryvenko
+					X-Course Task / React
 				</div>
 			</div>
 			<div className='header-right'>
@@ -33,7 +33,7 @@ const Header = () => {
 				</div>
 				<div className='header__user'>
 					<img
-						src='../../../public/user.png'
+						src='/user.png'
 						onClick={handleClickHome}
 						alt='user'
 					/>

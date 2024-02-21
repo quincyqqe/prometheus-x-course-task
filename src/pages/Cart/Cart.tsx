@@ -49,7 +49,7 @@ const Cart = () => {
 										className='remove-button'
 										onClick={() => handleRemoveFromCart(item.id)}
 									>
-										<img src='../../../public/letter-x.png' alt='x' />
+										<img src='/letter-x.png' alt='x' />
 									</div>
 								</li>
 							))}
