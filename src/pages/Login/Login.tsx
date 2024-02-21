@@ -2,10 +2,8 @@ import { useState } from 'react'
 import { useNavigate } from 'react-router-dom'
 
 import './Login.scss'
-interface LoginProps {
-	onAuthentication: () => void
-}
-const Login: React.FC<LoginProps> = ({ onAuthentication }) => {
+
+const Login = () => {
 	const [userName, setUserName] = useState<string>('')
 	const [password, setPassword] = useState<string>('')
 	const [userNameValid, setUserNameValid] = useState<boolean>(false)
@@ -22,7 +20,7 @@ const Login: React.FC<LoginProps> = ({ onAuthentication }) => {
 			alert(`Error, password should be at least 4 characters.`)
 			return
 		}
-		onAuthentication()
+
 		navigate('/home')
 	}
 

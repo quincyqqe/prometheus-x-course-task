@@ -1,4 +1,3 @@
-import { useState } from 'react'
 import { BrowserRouter as Router, Route, Routes } from 'react-router-dom'
 import { CartProvider } from './context/CartContext'
 
@@ -10,21 +9,12 @@ import Footer from './components/Footer/Footer'
 import Cart from './pages/Cart/Cart'
 
 const App = () => {
-	const [isAuthenticated, setIsAuthenticated] = useState<boolean>(false)
-
-	const handleAuthentication = () => {
-		setIsAuthenticated(true)
-	}
-
 	return (
 		<>
 			<Router>
 				<CartProvider>
 					<Routes>
-						<Route
-							path='/'
-							element={<Login onAuthentication={handleAuthentication} />}
-						/>
+						<Route path='/' element={<Login />} />
 						<Route path='/home' element={<Home />} />
 						<Route path='/book-details/:productId' element={<BookDetails />} />
 						<Route path='/cart' element={<Cart />} />
