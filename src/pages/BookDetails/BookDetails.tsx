@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react'
 import Header from '../../components/Header/Header'
-import { useAuth } from '../../context/AuthContext'
+
 import { useNavigate, useParams } from 'react-router-dom'
 import './BookDetails.scss'
 import { useCart } from '../../context/CartContext' // Assuming that you have CartContext in this path
@@ -12,7 +12,7 @@ import Button from '@mui/material/Button'
 interface BookDetailsProps {}
 
 const BookDetails: React.FC<BookDetailsProps> = () => {
-	const { isAuthenticated } = useAuth()
+	
 	const navigate = useNavigate()
 	const { productId } = useParams<{ productId: string }>()
 	const [book, setBook] = useState<any>({})
@@ -42,11 +42,7 @@ const BookDetails: React.FC<BookDetailsProps> = () => {
 		fetchData()
 	}, [productId])
 
-	useEffect(() => {
-		if (!isAuthenticated) {
-			navigate('/')
-		}
-	}, [isAuthenticated, navigate])
+	
 
 	const handleBuyClick = () => {
 		const { id, title, price } = book
@@ -84,7 +80,7 @@ const BookDetails: React.FC<BookDetailsProps> = () => {
 					<p>Amount: {book.amount}</p>
 					<p>Level: {book.level}</p>
 					<button disabled={book.isPurchased} onClick={handleBuyClick}>
-						{book.isPurchased ? 'Already Purchased' : 'Purchase'}
+						{book.isPurchased ? 'Already Purchased' : 'Add to cart'}
 					</button>
 					<Snackbar
 						open={snackbarOpen}

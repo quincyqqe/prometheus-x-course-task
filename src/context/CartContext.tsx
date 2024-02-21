@@ -8,12 +8,14 @@ interface CartItem {
 	id: number
 	title: string
 	price: number
-	isPurchased: boolean // Добавляем новое свойство для отслеживания покупки
+	isPurchased: boolean
 }
+
 interface CartContextType {
 	cartItems: CartItem[]
 	addToCart: (item: CartItem) => void
 	removeFromCart: (itemId: number) => void
+	clearCart: () => void // Добавляем метод для очистки корзины
 }
 
 const CartContext = createContext<CartContextType | undefined>(undefined)
@@ -36,8 +38,14 @@ export const CartProvider: React.FC<CartContextProps> = ({ children }) => {
 		})
 	}
 
+	const clearCart = () => {
+		setCartItems([])
+	}
+
 	return (
-		<CartContext.Provider value={{ cartItems, addToCart, removeFromCart }}>
+		<CartContext.Provider
+			value={{ cartItems, addToCart, removeFromCart, clearCart }}
+		>
 			{children}
 		</CartContext.Provider>
 	)
