@@ -23,7 +23,7 @@ const BookList = () => {
 	useEffect(() => {
 		const fetchData = async () => {
 			try {
-				const response = await fetch('../../../books.json')
+				const response = await fetch('/books.json')
 				const data = await response.json()
 
 				if (data.books && Array.isArray(data.books)) {
