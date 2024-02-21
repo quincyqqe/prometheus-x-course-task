@@ -25,7 +25,7 @@ const BookDetails = () => {
 	useEffect(() => {
 		const fetchData = async () => {
 			try {
-				const response = await fetch('../../../books.json')
+				const response = await fetch('/books.json')
 				const data = await response.json()
 
 				const selectedBook = data.books.find(
