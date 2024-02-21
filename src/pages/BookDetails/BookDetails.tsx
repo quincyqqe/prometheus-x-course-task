@@ -11,8 +11,16 @@ import './BookDetails.scss'
 const BookDetails = () => {
 	const { productId } = useParams<{ productId: string }>()
 	const [book, setBook] = useState<any>({})
-	const { addToCart } = useCart()
+
 	const [snackbarOpen, setSnackbarOpen] = useState(false)
+	const cartContext = useCart()
+
+	if (!cartContext) {
+		// обработка случая, когда контекст равен undefined
+		return null
+	}
+
+	const { addToCart } = cartContext
 
 	useEffect(() => {
 		const fetchData = async () => {
