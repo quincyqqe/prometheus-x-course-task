@@ -1,16 +1,41 @@
 .product-card {
 	display: flex;
 	flex-direction: column;
-
 	border: 1px solid #736d6d;
 	border-radius: 8px;
-	margin: 16px 20px;
-	width: 290px;
-	height: 450px;
+	margin: 16px 10px;
+	width: calc(
+		100% - 20px
+	); /* Используем calc для корректного вычисления ширины */
 	box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
 	transition: background-color 0.3s ease;
+	&:last-child {
+		margin-bottom: 150px; /* Уменьшили отступ для мобильных устройств */
+	}
+
 	&:hover {
 		background-color: #665f5f43;
+	}
+
+	img {
+		border-top-right-radius: 8px;
+		border-top-left-radius: 8px;
+		width: 100%;
+		height: 250px;
+	}
+
+	.product-card__title {
+		font-weight: bold;
+		margin: 10px;
+	}
+
+	.product-card__wrapper {
+		display: flex;
+		justify-content: space-between;
+		align-items: center;
+		border-top: 1px solid #736d6d;
+		width: calc(100% - 20px);
+		margin: 10px;
 	}
 
 	button {
@@ -22,34 +47,11 @@
 		padding: 8px;
 		cursor: pointer;
 	}
+}
 
-	img {
-		border-top-right-radius: 8px;
-		border-top-left-radius: 8px;
-		width: 100%;
-		height: 250px;
-		padding: 0;
-		
+@media screen and (min-width: 600px) {
+	.product-card {
+		width: 290px;
+		margin: 16px 20px;
 	}
-}
-
-.product-card__title {
-	font-weight: bold;
-	margin-left: 10px;
-}
-
-.product-card__wrapper {
-	display: flex;
-	justify-content: space-between;
-	align-items: center;
-	border-top: 1px solid #736d6d;
-	width: 260px;
-	margin: auto 15px 0;
-}
-
-.product-card:last-child {
-	margin-bottom: 100px;
-	display: flex;
-	justify-content: flex-start !important;
-	flex-wrap: wrap;
 }
