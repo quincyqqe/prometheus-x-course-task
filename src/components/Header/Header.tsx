@@ -26,7 +26,7 @@ const Header = () => {
 			<div className='header-right'>
 				<div className='header__cart'>
 					<img
-						src='../../../public/empty-cart.png'
+						src='/empty-cart.png'
 						alt='cart'
 						onClick={handleClickCart}
 					/>
