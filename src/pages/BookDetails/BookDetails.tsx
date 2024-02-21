@@ -68,7 +68,7 @@ const BookDetails = () => {
 			<div className='book-details-container'>
 				<div className='book-details-image'>
 					<img
-						src={book.image || '../../../public/images/no-pictures.png'}
+						src={book.image || '../../../public/no-pictures.png'}
 						alt={book.title}
 					/>
 				</div>

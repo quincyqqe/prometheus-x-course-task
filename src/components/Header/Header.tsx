@@ -26,14 +26,14 @@ const Header = () => {
 			<div className='header-right'>
 				<div className='header__cart'>
 					<img
-						src='../../../public/images/empty-cart.png'
+						src='../../../public/empty-cart.png'
 						alt='cart'
 						onClick={handleClickCart}
 					/>
 				</div>
 				<div className='header__user'>
 					<img
-						src='../../../public/images/user.png'
+						src='../../../public/user.png'
 						onClick={handleClickHome}
 						alt='user'
 					/>
