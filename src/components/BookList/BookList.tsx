@@ -10,7 +10,9 @@ interface Book {
 	image: string
 	title: string
 	author: string
+	
 }
+
 
 const BookList = () => {
 	const [books, setBooks] = useState<Book[]>([])
