@@ -1,3 +1,4 @@
+
 import Header from '../../components/Header/Header'
 import { useCart } from '../../context/CartContext'
 import './Cart.scss'
@@ -9,7 +10,14 @@ interface CartItem {
 }
 
 const Cart = () => {
-	const { cartItems, removeFromCart, clearCart } = useCart()
+	const cartContext = useCart()
+
+	if (!cartContext) {
+		// Обработка случая, когда контекст не определен
+		return null
+	}
+
+	const { cartItems, removeFromCart, clearCart } = cartContext
 
 	const totalPrice = cartItems.reduce(
 		(total: number, item: CartItem) => total + item.price,
