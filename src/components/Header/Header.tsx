@@ -20,7 +20,7 @@ const Header = () => {
 		<div className='header'>
 			<div className='header-left'>
 				<div className='header__title' onClick={handleClickHome}>
-					X-Course Task / React
+					X-Course Task / Maksym Kryvenko
 				</div>
 			</div>
 			<div className='header-right'>

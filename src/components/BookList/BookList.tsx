@@ -10,9 +10,7 @@ interface Book {
 	image: string
 	title: string
 	author: string
-	
 }
-
 
 const BookList = () => {
 	const [books, setBooks] = useState<Book[]>([])
@@ -20,7 +18,7 @@ const BookList = () => {
 	const [searchTerm, setSearchTerm] = useState('')
 	const [selectedPriceRange, setSelectedPriceRange] = useState<string>('all')
 
- useEffect(() => {
+	useEffect(() => {
 		const fetchData = async () => {
 			try {
 				const response = await fetch('/books.json')
@@ -41,13 +39,12 @@ const BookList = () => {
 		}
 
 		fetchData()
- }, [searchTerm, selectedPriceRange])
+	}, [searchTerm, selectedPriceRange])
 
- const handleFilterChange = (search: string, priceRange: string) => {
+	const handleFilterChange = (search: string, priceRange: string) => {
 		setSearchTerm(search)
 		setSelectedPriceRange(priceRange)
- }
-
+	}
 
 	useEffect(() => {
 		// Викликаємо filterBooks тільки після успішного завантаження даних
@@ -55,8 +52,6 @@ const BookList = () => {
 			filterBooks(searchTerm, selectedPriceRange)
 		}
 	}, [books, selectedPriceRange, searchTerm])
-
-
 
 	const filterBooks = (search: string, priceRange: string) => {
 		let filtered = books

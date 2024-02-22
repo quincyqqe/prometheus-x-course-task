@@ -38,7 +38,7 @@ const BookDetails = () => {
 			} catch (error) {
 				console.error('Error fetching data:', error)
 			} finally {
-				setLoading(false) // Устанавливаем loading в false после завершения загрузки, независимо от результата
+				setLoading(false)
 			}
 		}
 

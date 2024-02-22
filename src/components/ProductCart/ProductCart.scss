@@ -6,11 +6,11 @@
 	margin: 16px 10px;
 	width: calc(
 		100% - 20px
-	); /* Используем calc для корректного вычисления ширины */
+	); 
 	box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
 	transition: background-color 0.3s ease;
 	&:last-child {
-		margin-bottom: 150px; /* Уменьшили отступ для мобильных устройств */
+		margin-bottom: 150px;
 	}
 
 	&:hover {

@@ -1,14 +1,12 @@
 import { useNavigate } from 'react-router-dom'
 import './ProductCart.scss'
 
-
-
 interface ProductCardProps {
 	key: number
 	id: number
 	name: string
 	price: number
-	image: string 
+	image: string
 	author: string
 	addToCart: (productId: number) => void
 }
@@ -26,10 +24,7 @@ const ProductCard: React.FC<ProductCardProps> = ({
 	}
 	return (
 		<div className='product-card'>
-			<img
-				src={image || '/no-pictures.png'}
-				alt='book image'
-			/>
+			<img src={image || '/no-pictures.png'} alt='book image' />
 			<div className='product-card__title'>
 				<h3>{name}</h3>
 				<h4>{author}</h4>

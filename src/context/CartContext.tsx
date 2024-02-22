@@ -15,7 +15,7 @@ interface CartContextType {
 	cartItems: CartItem[]
 	addToCart: (item: CartItem) => void
 	removeFromCart: (itemId: number) => void
-	clearCart: () => void 
+	clearCart: () => void
 }
 
 const CartContext = createContext<CartContextType | undefined>(undefined)

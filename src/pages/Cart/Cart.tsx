@@ -1,4 +1,3 @@
-
 import Header from '../../components/Header/Header'
 import { useCart } from '../../context/CartContext'
 import './Cart.scss'
