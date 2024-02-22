@@ -1,14 +1,14 @@
+
 .product-card {
 	display: flex;
 	flex-direction: column;
 	border: 1px solid #736d6d;
 	border-radius: 8px;
 	margin: 16px 10px;
-	width: calc(
-		100% - 20px
-	); 
+	width: calc(100% - 20px);
 	box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
 	transition: background-color 0.3s ease;
+
 	&:last-child {
 		margin-bottom: 150px;
 	}
@@ -21,7 +21,7 @@
 		border-top-right-radius: 8px;
 		border-top-left-radius: 8px;
 		width: 100%;
-		height: 250px;
+		height: 300px; 
 	}
 
 	.product-card__title {
@@ -31,11 +31,13 @@
 
 	.product-card__wrapper {
 		display: flex;
+
 		justify-content: space-between;
-		align-items: center;
+		align-items: center; 
 		border-top: 1px solid #736d6d;
 		width: calc(100% - 20px);
 		margin: 10px;
+		margin-top: auto;
 	}
 
 	button {
