@@ -1,5 +1,6 @@
 import { useState } from 'react'
 import { useNavigate } from 'react-router-dom'
+import { useAuth } from '../../context/AuthContext'
 
 import './Login.scss'
 
@@ -7,20 +8,21 @@ const Login = () => {
 	const [userName, setUserName] = useState<string>('')
 	const [password, setPassword] = useState<string>('')
 	const [userNameValid, setUserNameValid] = useState<boolean>(false)
+	const { login } = useAuth()
 
 	const navigate = useNavigate()
 
 	const handleSubmit = (e: React.FormEvent) => {
 		e.preventDefault()
 		if (userName === '' || password === '') {
-			alert(`Error, username and password fields cannot be empty.`)
+			alert(`Error, username and/or password fields cannot be empty.`)
 			return
 		}
 		if (password.length < 4) {
 			alert(`Error, password should be at least 4 characters.`)
 			return
 		}
-
+		login()
 		navigate('/home')
 	}
 

@@ -12,7 +12,6 @@ const Cart = () => {
 	const cartContext = useCart()
 
 	if (!cartContext) {
-		// Обработка случая, когда контекст не определен
 		return null
 	}
 

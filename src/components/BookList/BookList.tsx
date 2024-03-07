@@ -1,6 +1,7 @@
 import { useEffect, useState } from 'react'
 import ProductCard from '../ProductCart/ProductCart'
 import Filter from '../Filter/Filter'
+
 import './BookList.scss'
 
 interface Book {
@@ -47,7 +48,6 @@ const BookList = () => {
 	}
 
 	useEffect(() => {
-		// Викликаємо filterBooks тільки після успішного завантаження даних
 		if (books.length > 0) {
 			filterBooks(searchTerm, selectedPriceRange)
 		}

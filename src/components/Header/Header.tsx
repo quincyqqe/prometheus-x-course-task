@@ -1,10 +1,14 @@
 import { useNavigate } from 'react-router-dom'
+import { useAuth } from '../../context/AuthContext'
+
 import './Header.scss'
 
 const Header = () => {
 	const navigate = useNavigate()
+	const { logout } = useAuth()
 
 	const handleClick = () => {
+		logout()
 		navigate('/')
 	}
 
@@ -25,18 +29,10 @@ const Header = () => {
 			</div>
 			<div className='header-right'>
 				<div className='header__cart'>
-					<img
-						src='/empty-cart.png'
-						alt='cart'
-						onClick={handleClickCart}
-					/>
+					<img src='/empty-cart.png' alt='cart' onClick={handleClickCart} />
 				</div>
 				<div className='header__user'>
-					<img
-						src='/user.png'
-						onClick={handleClickHome}
-						alt='user'
-					/>
+					<img src='/user.png' onClick={handleClickHome} alt='user' />
 				</div>
 				<div className='header__sign-out'>
 					<button onClick={handleClick}>Sign Out</button>

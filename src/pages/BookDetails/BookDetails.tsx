@@ -14,7 +14,6 @@ const BookDetails = () => {
 	const cartContext = useCart()
 
 	if (!cartContext) {
-		// Обработка случая, когда контекст равен undefined
 		return null
 	}
 
@@ -63,7 +62,7 @@ const BookDetails = () => {
 	}
 
 	if (loading) {
-		return <div></div> // Загрузка, пока нет данных (но не знаю как сделать правильно ибо быстро грузит и происходит мерцание)
+		return <div></div> // Завантаження, поки немає даних (але не знаю як зробити правильно бо швидко вантажить і відбувається мерехтіння)
 	}
 
 	return (
