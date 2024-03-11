@@ -1,3 +1,14 @@
 .container {
-	margin: 0 17px; 
+	margin-bottom: 120px;
+
+	.booklist {
+		display: flex;
+		flex-wrap: wrap;
+		justify-content: center;
+		margin: 0 60px;
+
+		.product-card {
+			margin-right: 20px;
+		}
+	}
 }

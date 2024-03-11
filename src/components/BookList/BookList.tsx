@@ -90,15 +90,7 @@ const BookList = () => {
 		<>
 			<Filter onFilterChange={handleFilterChange} />
 			<div className='container'>
-				<div
-					className='booklist'
-					style={{
-						display: 'flex',
-						flexWrap: 'wrap',
-						justifyContent: 'flex-start',
-						margin: '0 60px',
-					}}
-				>
+				<div className='booklist'>
 					{filteredBooks.map(book => (
 						<ProductCard
 							key={book.id}
