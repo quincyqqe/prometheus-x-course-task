@@ -4,11 +4,9 @@
 	border: 1px solid #736d6d;
 	border-radius: 8px;
 	margin: 16px 10px;
-	width: calc(100% - 20px);
 	max-height: 550px;
 	box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
 	transition: background-color 0.3s ease;
-
 
 	&:hover {
 		background-color: #665f5f43;
@@ -32,7 +30,6 @@
 		justify-content: space-between;
 		align-items: center;
 		border-top: 1px solid #736d6d;
-		width: calc(100% - 20px);
 		margin: 10px;
 		margin-top: auto;
 	}

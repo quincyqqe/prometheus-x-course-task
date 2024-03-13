@@ -1,14 +1,22 @@
+
 .container {
-	margin-bottom: 120px;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+}
 
+.booklist {
+	display: flex;
+	flex-wrap: wrap;
+	gap: 13px;
+	margin-left: 30px;
+	max-width: 1400px;
+	justify-content: flex-start;
+	width: 100%;
+}
+
+@media screen and (max-width: 600px) {
 	.booklist {
-		display: flex;
-		flex-wrap: wrap;
 		justify-content: center;
-		margin: 0 60px;
-
-		.product-card {
-			margin-right: 20px;
-		}
 	}
 }
